@@ -21,7 +21,10 @@ jobs:
       - name: Install Dependencies
         run: pip install -r requirements.txt
 
-      - name: Run Python Script
+      - name: Run Python Script 
+        name: Run Smartsheet to SQL Script
+        run: |
+          python C:\Users\chaitanyaummadi\Desktop\Pythonfiles\updating.py
         env:
           AZURE_SERVER_NAME: ${{ secrets.AZURE_SERVER_NAME }}
           AZURE_DATABASE_NAME: ${{ secrets.AZURE_DATABASE_NAME }}
