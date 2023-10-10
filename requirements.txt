@@ -1,3 +1,4 @@
-requests==2.26.0
+pip install -r requirements.txt
 pyodbc==4.0.42
-smartsheet-sdk==2.155.0
+smartsheet-python-sdk==2.155.0
+package-name==version
