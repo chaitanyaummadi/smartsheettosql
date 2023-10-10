@@ -29,4 +29,4 @@ jobs:
           AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
           SMARTSHEET_ACCESS_TOKEN: ${{ secrets.SMARTSHEET_ACCESS_TOKEN }}
           SMARTSHEET_SHEET_ID: ${{ secrets.SMARTSHEET_SHEET_ID }}
-        run: python C:\Users\ChaitanyaUmmadi\Desktop\Pythonfiles\updating.py
+        run:C:\Users\ChaitanyaUmmadi\Desktop\Pythonfiles\updating
