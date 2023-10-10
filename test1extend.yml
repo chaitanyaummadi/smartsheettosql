@@ -19,11 +19,9 @@ jobs:
           python-version: 3.11
 
       - name: Install Dependencies
-        run: requirements.txt
+        run: pip install -r requirements.txt
 
       - name: Run Python Script 
-        run: |
-          python C:\Users\chaitanyaummadi\Desktop\Pythonfiles\updating.py
         env:
           AZURE_SERVER_NAME: ${{ secrets.AZURE_SERVER_NAME }}
           AZURE_DATABASE_NAME: ${{ secrets.AZURE_DATABASE_NAME }}
@@ -31,4 +29,4 @@ jobs:
           AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
           SMARTSHEET_ACCESS_TOKEN: ${{ secrets.SMARTSHEET_ACCESS_TOKEN }}
           SMARTSHEET_SHEET_ID: ${{ secrets.SMARTSHEET_SHEET_ID }}
-        run: python updating.py
+        run: python C:\Users\chaitanyaummadi\Desktop\Pythonfiles\updating.py
