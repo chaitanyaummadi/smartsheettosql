@@ -22,7 +22,6 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run Python Script 
-        name: Run Smartsheet to SQL Script
         run: |
           python C:\Users\chaitanyaummadi\Desktop\Pythonfiles\updating.py
         env:
