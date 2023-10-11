@@ -25,7 +25,7 @@ jobs:
 
       - name: Run Smartsheet to SQL Script
         run: |
-          /usr/bin/python3.8 C:\Users\ChaitanyaUmmadi\Desktop\Pythonfiles\updating.py  # Use the correct path to your Python script
+          python updating.py  # Use the correct path to your Python script
         env:
           AZURE_SQL_SERVER_NAME: ${{ secrets.AZURE_SERVER_NAME }}
           AZURE_SQL_DB_NAME: ${{ secrets.AZURE_DATABASE_NAME }}
