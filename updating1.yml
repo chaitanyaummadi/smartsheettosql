@@ -1,7 +1,7 @@
 name: Smartsheet to Azure SQL CI/CD
 
 on: 
-  push: 
+  push:  
     branches:
       - master  # Change to the branch you want to trigger the workflow on
 
