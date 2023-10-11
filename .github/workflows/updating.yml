@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: smartsheettosql/.github/workflows/updating.yml
+
         uses: actions/checkout@v2
 
       - name: Setup Python
