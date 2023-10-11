@@ -1,32 +1,35 @@
-name: Update Azure Data
+name: Smartsheet to Azure SQL CI/CD
 
 on:
   push:
     branches:
-      - main  # Change to your default branch name
+      - master  # Change to the branch you want to trigger the workflow on
 
 jobs:
-  update:
+  data_transfer:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: '3.8'  # Specify the Python version you need
 
-      - name: Install Dependencies
-        run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          pip install pyodbc
+          pip install smartsheet-python-sdk
 
-      - name: Run Python Script
+      - name: Run Smartsheet to SQL Script
+        run: |
+          /usr/bin/python3.8 C:\Users\ChaitanyaUmmadi\Desktop\Pythonfiles\updating.py  # Use the correct path to your Python script
         env:
-          AZURE_SERVER_NAME: ${{ secrets.AZURE_SERVER_NAME }}
-          AZURE_DATABASE_NAME: ${{ secrets.AZURE_DATABASE_NAME }}
-          AZURE_USERNAME: ${{ secrets.AZURE_USERNAME }}
-          AZURE_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
+          AZURE_SQL_SERVER_NAME: ${{ secrets.AZURE_SERVER_NAME }}
+          AZURE_SQL_DB_NAME: ${{ secrets.AZURE_DATABASE_NAME }}
+          AZURE_SQL_USERNAME: ${{ secrets.AZURE_USERNAME }}
+          AZURE_SQL_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
           SMARTSHEET_ACCESS_TOKEN: ${{ secrets.SMARTSHEET_ACCESS_TOKEN }}
           SMARTSHEET_SHEET_ID: ${{ secrets.SMARTSHEET_SHEET_ID }}
-        run: C:\Users\ChaitanyaUmmadi\Desktop\Pythonfiles\updating.py
