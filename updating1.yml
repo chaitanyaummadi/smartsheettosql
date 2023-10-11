@@ -5,6 +5,13 @@ on:
     branches:
       - master  # Change to the branch you want to trigger the workflow on
 
+on:
+
+  schedule:
+
+    - cron: '*/5 * * * *'
+
+
 jobs:
   data_transfer:
     runs-on: ubuntu-latest
