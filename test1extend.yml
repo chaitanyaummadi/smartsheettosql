@@ -1,43 +1,31 @@
 name: Smartsheet to Azure SQL CI/CD
 
- 
-
 on:
   push:
     branches:
       - master  # Change to the branch you want to trigger the workflow on
 
- 
-
 jobs:
   data_transfer:
     runs-on: ubuntu-latest
 
- 
-
     steps:
-      - name: automate.github-workflows/smartsheetosql.yml
+      - name: Checkout Code
         uses: actions/checkout@v2
-
- 
 
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.11'  # Specify the Python version you need
-
- 
+          python-version: '3.8'  # Specify the Python version you need
 
       - name: Install dependencies
         run: |
           pip install pyodbc
           pip install smartsheet-python-sdk
 
- 
-
       - name: Run Smartsheet to SQL Script
         run: |
-          python updating.py  #  actual path to  Python script
+          /usr/bin/python3.8 C:\Users\ChaitanyaUmmadi\Desktop\Pythonfiles\updating.py  # Use the correct path to your Python script
         env:
           AZURE_SQL_SERVER_NAME: ${{ secrets.AZURE_SERVER_NAME }}
           AZURE_SQL_DB_NAME: ${{ secrets.AZURE_DATABASE_NAME }}
@@ -45,13 +33,3 @@ jobs:
           AZURE_SQL_PASSWORD: ${{ secrets.AZURE_PASSWORD }}
           SMARTSHEET_ACCESS_TOKEN: ${{ secrets.SMARTSHEET_ACCESS_TOKEN }}
           SMARTSHEET_SHEET_ID: ${{ secrets.SMARTSHEET_SHEET_ID }}
-
- 
-
-          #- name: Commit and push changes (optional)
-      #run: |
-       # git config user.name "chaitanyaummadi"
-        #git config user.email "chaitanya.ummadi@sno.cloud"
-     #   git add .
-      #  git commit -m "Update SQL table with Smartsheet data"
-       # git push origin master
